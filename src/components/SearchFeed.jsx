@@ -25,7 +25,7 @@ const SearchFeed = () => {
         ml={{ sm: "100px" }}
       >
         Résultat de la recherche pour{" "}
-        <span style={{ color: "#f8f400" }}>{searchTerm}</span> videos
+        <span style={{ color: "#f8f400" }}>{searchTerm}</span>
       </Typography>
       <Box display="flex">
         <Box sx={{ mr: { sm: "100px" } }} />
