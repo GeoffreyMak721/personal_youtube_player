@@ -29,7 +29,10 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
         }}
       >
         <CardMedia
-          image={channelDetail?.avatar[2]?.url || demoProfilePicture}
+          image={
+            (channelDetail?.avatar && channelDetail?.avatar[2]?.url) ||
+            demoProfilePicture
+          }
           alt={channelDetail?.title}
           sx={{
             borderRadius: "50%",
