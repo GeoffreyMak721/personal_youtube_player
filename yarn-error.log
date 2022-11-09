@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/bin/node /home/geoffrey/.yarn/bin/yarn.js
+
+PATH: 
+  /home/geoffrey/.yarn/bin:/home/geoffrey/.config/yarn/global/node_modules/.bin:/home/geoffrey/.yarn/bin:/home/geoffrey/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/geoffrey/.pub-cache/bin:/home/geoffrey/.pub-cache/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/react: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/home/geoffrey/.yarn/lib/cli.js:141517:19)
+      at Object.onceWrapper (node:events:627:28)
+      at ClientRequest.emit (node:events:513:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:814:9)
+      at Object.onceWrapper (node:events:627:28)
+      at TLSSocket.emit (node:events:525:35)
+      at TLSSocket.Socket._onTimeout (node:net:526:8)
+      at listOnTimeout (node:internal/timers:559:17)
+      at processTimers (node:internal/timers:502:7)
+
+npm manifest: 
+  {
+    "name": "react-typescript",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "React TypeScript on Replit, using Vite bundler",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@emotion/react": "^11.10.0",
+      "@emotion/styled": "^11.10.0",
+      "@mui/icons-material": "^5.8.4",
+      "@mui/material": "^5.9.3",
+      "axios": "^0.27.2",
+      "react-player": "^2.10.1",
+      "react-router-dom": "^6.3.0"
+    },
+    "devDependencies": {
+      "@types/react": "^18.0.15",
+      "@types/react-dom": "^18.0.6",
+      "@vitejs/plugin-react": "^2.0.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "typescript": "^4.7.4",
+      "typescript-language-server": "^0.11.2",
+      "vite": "^3.0.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
