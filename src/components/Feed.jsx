@@ -11,9 +11,10 @@ const Feed = () => {
   useEffect(() => {
     setVideos(null);
 
-    fetchFromAPI(`search?q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
-    );
+    fetchFromAPI(`search/?q=${selectedCategory}`).then((data) => {
+      console.log(data);
+      setVideos(data.contents);
+    });
   }, [selectedCategory]);
 
   return (
