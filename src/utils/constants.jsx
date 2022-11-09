@@ -15,15 +15,15 @@ import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
-  { name: "Religion", icon: <HomeIcon /> },
-  { name: "Habillement", icon: <CodeIcon /> },
-  { name: "Coding", icon: <CodeIcon /> },
-  { name: "ReactJS", icon: <CodeIcon /> },
-  { name: "NextJS", icon: <CodeIcon /> },
+  { name: "Manga", icon: <HomeIcon /> },
+  // { name: "Habillement", icon: <CodeIcon /> },
+  // { name: "ReactJS", icon: <CodeIcon /> },
+  // { name: "Next JS", icon: <CodeIcon /> },
   { name: "Musique", icon: <MusicNoteIcon /> },
   { name: "Education", icon: <SchoolIcon /> },
   { name: "Podcast", icon: <GraphicEqIcon /> },
   { name: "Films", icon: <OndemandVideoIcon /> },
+  { name: "Coding", icon: <CodeIcon /> },
   { name: "Gaming", icon: <SportsEsportsIcon /> },
   { name: "Live", icon: <LiveTvIcon /> },
   { name: "Sport", icon: <FitnessCenterIcon /> },
