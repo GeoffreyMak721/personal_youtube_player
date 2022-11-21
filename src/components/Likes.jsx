@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
-import { useParams } from "react-router-dom";
-
+import { Videos } from ".";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
-import { Videos } from "./";
 
-const SearchFeed = () => {
+const Subscriptions = () => {
   const [videos, setVideos] = useState(null);
-  const { searchTerm } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`search`, {
-      part: "snippet",
+    setVideos(null);
+    fetchFromAPI(`videos`, {
+      part: "snippet,contentDetails,statistics",
+      myRating: "like",
       maxResults: 20,
-      q: searchTerm,
-      type: "video,channel",
-    }).then((data) => setVideos(data.items));
-  }, [searchTerm]);
+    }).then((data) => {
+      console.log(data);
+      setVideos(data.items);
+    });
+  }, []);
 
   return (
     <Box p={2} minHeight="95vh">
@@ -27,8 +27,7 @@ const SearchFeed = () => {
         mb={3}
         ml={{ sm: "100px" }}
       >
-        Résultat de la recherche pour{" "}
-        <span style={{ color: "#f8f400" }}>{searchTerm}</span>
+        Likes
       </Typography>
       <Box display="flex">
         <Box sx={{ mr: { sm: "100px" } }} />
@@ -38,4 +37,4 @@ const SearchFeed = () => {
   );
 };
 
-export default SearchFeed;
+export default Subscriptions;

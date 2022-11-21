@@ -27,10 +27,10 @@ googleProvider.addScope("https://www.googleapis.com/auth/youtube.force-ssl");
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
-    console.log("res", res);
-    const accessToken = res.user.accessToken;
+    const credential = GoogleAuthProvider.credentialFromResult(res);
+    const accessToken = credential.accessToken;
+    console.log("accessToken", accessToken);
     localStorage.setItem("ytc-access-token", accessToken);
-    const user = res.user;
   } catch (err) {
     console.error(err);
   }

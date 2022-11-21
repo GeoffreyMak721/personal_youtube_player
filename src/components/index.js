@@ -12,3 +12,5 @@ export { default as Sidebar } from "./Sidebar";
 export { default as SettingMenu } from "./SettingMenu";
 export { default as Login } from "./Login";
 export { default as Home } from "./Home";
+export { default as Subscriptions } from "./Subscriptions";
+export { default as Likes } from "./Likes";

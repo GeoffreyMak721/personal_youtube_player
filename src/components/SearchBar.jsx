@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
@@ -11,12 +11,19 @@ const SearchBar = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
+  const params = useParams();
 
   const matches = useMediaQuery(
     json2mq({
       maxWidth: 440,
     })
   );
+
+  useEffect(() => {
+    if (params.searchTerm) {
+      setSearchTerm(params.searchTerm);
+    }
+  }, [params]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

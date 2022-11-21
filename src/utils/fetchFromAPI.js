@@ -1,19 +1,20 @@
 import axios from "axios";
 
-export const BASE_URL = "https://youtube138.p.rapidapi.com";
+export const BASE_URL = "https://youtube.googleapis.com/youtube/v3";
 
-const options = {
-  params: {
-    maxResults: 50,
-  },
-  headers: {
-    "X-RapidAPI-Key": "2121cf8a59msh3d926fa444f5c7fp105f62jsnb2a64243f627",
-    "X-RapidAPI-Host": "youtube138.p.rapidapi.com",
-  },
-};
-
-export const fetchFromAPI = async (url) => {
-  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+export const fetchFromAPI = async (url, params = {}) => {
+  const { data } = await axios.get(`${BASE_URL}/${url}`, {
+    params: {
+      maxResults: 20,
+      key: "AIzaSyCD2RHiZA2gkY1jaxRTtVyuUD1kHypyIK4",
+      ...params,
+    },
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("ytc-access-token")}`,
+    },
+  });
 
   return data;
 };
+
+//AIzaSyCD2RHiZA2gkY1jaxRTtVyuUD1kHypyIK4

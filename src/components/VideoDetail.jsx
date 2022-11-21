@@ -13,28 +13,31 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`video/details/?id=${id}`).then((data) =>
-      setVideoDetail(data)
-    );
+    fetchFromAPI(`videos`, {
+      part: "snippet,statistics",
+      id: id,
+    }).then((data) => setVideoDetail(data.items[0]));
 
-    fetchFromAPI(`video/related-contents/?id=${id}`).then((data) =>
-      setVideos(data.contents)
-    );
+    fetchFromAPI(`search`, {
+      part: "snippet",
+      relatedToVideoId: id,
+      maxResults: 20,
+      type: "video",
+    }).then((data) => setVideos(data.items));
   }, [id]);
 
-  if (!videoDetail?.videoId) return <Loader />;
+  if (!videoDetail?.id) return <Loader />;
 
   const {
-    title,
-    author: { channelId, title: channelTitle },
-    stats: { views: viewCount, likes: likeCount },
+    snippet: { title, channelId, channelTitle },
+    statistics: { viewCount, likeCount },
   } = videoDetail;
 
   return (
     <Box minHeight="95vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
+          <Box sx={{ width: "100%" }}>
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               className="react-player"
@@ -78,6 +81,9 @@ const VideoDetail = () => {
           justifyContent="center"
           alignItems="center"
         >
+          <Typography variant="h4" fontWeight={900} color="white" mb={4}>
+            Plus des videos
+          </Typography>
           <Videos videos={videos} direction="column" />
         </Box>
       </Stack>

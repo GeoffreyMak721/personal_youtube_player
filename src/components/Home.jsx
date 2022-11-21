@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { Box, Stack, Typography } from "@mui/material";
+
 import { auth } from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -23,7 +25,9 @@ export default function Home() {
       ) : (
         <>
           <Navbar />
-          <Outlet />
+          <Box sx={{ paddingTop: 10 }}>
+            <Outlet />
+          </Box>
         </>
       )}
     </>

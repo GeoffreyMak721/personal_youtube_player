@@ -11,8 +11,11 @@ import {
   Loader,
   Login,
   Home,
+  Subscriptions,
+  Likes,
 } from "./components";
 
+//subscriptions
 const App = () => {
   return (
     <BrowserRouter>
@@ -21,6 +24,8 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route path="/" element={<Home />}>
             <Route path="/" element={<Feed />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
+            <Route path="/likes" element={<Likes />} />
             <Route path="/video/:id" element={<VideoDetail />} />
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route path="/search/:searchTerm" element={<SearchFeed />} />

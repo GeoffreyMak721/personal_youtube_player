@@ -16,8 +16,12 @@ const Videos = ({ videos, direction }) => {
     >
       {videos.map((item, idx) => (
         <Box key={idx}>
-          {item.type === "video" && <VideoCard video={item} />}
-          {item.type === "channel" && <ChannelCard channelDetail={item} />}
+          {(item.id.videoId || item.kind === "youtube#video") && (
+            <VideoCard video={item} />
+          )}
+          {(item.id.channelId || item.kind === "youtube#subscription") && (
+            <ChannelCard channelDetail={item} />
+          )}
         </Box>
       ))}
     </Stack>
